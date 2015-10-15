@@ -1,5 +1,6 @@
 "use strict";
 // https://www.wanadev.fr/introduction-a-ecmascript-6-le-javascript-de-demain/
+// https://developer.mozilla.org/fr/docs/Web/JavaScript/Nouveaut%C3%A9s_et_historique_de_JavaScript/Support_ECMAScript_6_par_Mozilla
 
 ///// Variables locales / globales /////
 function swap(x, y){
@@ -66,19 +67,62 @@ function afficheYear(yearPlus){
     
 }
 
-let add = function(x, y){
+///// Parcourir un tableau /////
+function arr(){
     
-    let var1 = typeof(x) === "number" ? x : 0;
-    let var2 = typeof(y) === "number" ? y : 0;
+    let regions = ["Gironde", "Landes", "Pyrénées", "Dordogne"];
     
-    if(typeof(y) !== "number"){
+    for(let region of regions){
         
-        console.log("y is a string");
+        console.log(region);
         
     }
     
-    return x + y;
+    for(let region of regions.entries()){
+        
+        console.log(region);
+        
+    }
     
-};
-console.log("Number", add(3, 1));
-console.log("String", add(3, "test"));
+    let i = 0;
+    for(let region of regions){
+        
+        console.log(region, i++);
+        
+    }
+    
+    console.log(regions[2]);
+    
+    let regions2 = [
+        
+        {
+            dept: 33,
+            name: "Gironde"
+        },
+        {
+            dept: 40,
+            name: "Landes"
+        },
+        {
+            dept: 65,
+            name: "Pyrénées"
+        }
+        
+    ];
+    
+    // On parcour le tableau regions2
+    for(let region of regions2){
+        
+        console.log(region.dept, region.name);
+        
+        // Pour chacune des entrées du tableau régions2 on parcour ses entrée et on affiche clé => valeur
+        for(var prop in region){
+        
+            console.log(`Clé : ${prop} => Valeur : ${region[prop]}`);
+        
+        }
+        
+    }
+    
+}
+arr();
