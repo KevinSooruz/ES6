@@ -11,8 +11,9 @@
 </head>
 <body>
     
+    <button id="clic">Clic me</button>
     
-<script type="text/javascript" src="app/js/app.js"></script>
+<script type="text/javascript" src="dist/app/js/app.js"></script>
     
 </body>
 </html>

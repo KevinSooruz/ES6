@@ -74,20 +74,20 @@ function arr(){
     
     for(let region of regions){
         
-        console.log(region);
+        console.log("let region of regions", region);
         
     }
     
-    for(let region of regions.entries()){
+    for(let [index, region] of regions.entries()){
         
-        console.log(region);
+        console.log("let [index, region] of regions.entries()", index, region);
         
     }
     
     let i = 0;
     for(let region of regions){
         
-        console.log(region, i++);
+        console.log("let region of regions + i++", region, i++);
         
     }
     
@@ -118,7 +118,7 @@ function arr(){
         // Pour chacune des entrées du tableau régions2 on parcour ses entrée et on affiche clé => valeur
         for(var prop in region){
         
-            console.log(`Clé : ${prop} => Valeur : ${region[prop]}`);
+            console.log("var prop in region clé - valeur", `Clé : ${prop} => Valeur : ${region[prop]}`);
         
         }
         
@@ -126,3 +126,101 @@ function arr(){
     
 }
 arr();
+
+///// Objets littéraux /////
+let ObjLit = {
+    
+    initialize(){
+        
+        console.log(this);
+        this.display("Init");
+        
+    },
+    display(message){
+        
+        console.log(message);
+        
+    }
+    
+};
+ObjLit.initialize();
+
+///// Fonctions lambda /////
+function lambda(){
+    
+    let values = [65, 7, 78, 1, 32, 66];
+    
+    values.sort((a, b) => {
+            
+        console.log(a - b);
+            
+    });
+    
+}
+lambda();
+
+let Engine2 = {
+    
+    initialize(){
+        
+        let elem = document.getElementById("clic");
+        
+        elem.addEventListener("click", (e) => {
+            
+            this.display(e.type);
+            
+        }, false);
+        
+    },
+    
+    display(message){
+        
+        alert(message);
+        
+    }
+    
+};
+Engine2.initialize();
+
+///// Classes /////
+class Person{
+    
+    constructor(name, age){
+        
+        this.name = name;
+        this.age = age;
+        
+    }
+    
+    toString(){
+        
+        return `Hi, my name is ${this.name} and I'm ${this.age} year old !`;
+        
+    }
+    
+}
+let pers = new Person("Kévin", 28);
+console.log(pers.toString());
+
+///// Héritage /////
+class Developer extends Person{
+    
+    constructor(name, age, langage){
+        
+        super(name, age);
+        this.langage = langage;
+        
+    }
+    
+    toString(){
+        
+        return super.toString() + ` I'm a ${this.langage} developer !`;
+        
+    }
+    
+}
+let dev = new Developer("Kévin", 28, "Javascript");
+console.log(dev.toString());
+
+let dev2 = new Developer("Arnaud", 26, "Prestashop");
+console.log(dev2.toString());
